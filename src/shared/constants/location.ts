@@ -38,6 +38,8 @@ export const MANDATORY_LOCATION_ATTRIBUTE_TYPE_UUID = [
 ];
 export const CLINIC_CLOSED_DATES_ATTRIBUTE_TYPE_UUID = "64b73c1c-c91a-403f-bb26-dd62dc91bfef";
 export const CLINIC_CLOSED_WEEKDAYS_ATTRIBUTE_TYPE_UUID = "570e9b8f-752b-4577-9ffb-721e073387d9";
+export const OWNERSHIP_ATTRIBUTE_TYPE_UUID = "75fc8834-ef92-11ef-bab3-0242ac140002";
+export const FACILITY_LEVEL_ATTRIBUTE_TYPE_UUID = "3acd8d65-ef93-11ef-bab3-0242ac140002";
 export const WEEKDAYS_OPTIONS_MAP = [
   { label: "cfl.weekDay.Monday.fullName", value: "Monday" },
   { label: "cfl.weekDay.Tuesday.fullName", value: "Tuesday" },

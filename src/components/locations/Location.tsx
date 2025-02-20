@@ -48,6 +48,8 @@ import {
   CLINIC_CLOSED_DATES_ATTRIBUTE_TYPE_UUID,
   CLINIC_CLOSED_WEEKDAYS_ATTRIBUTE_TYPE_UUID,
   WEEKDAYS_OPTIONS_MAP,
+  OWNERSHIP_ATTRIBUTE_TYPE_UUID,
+  FACILITY_LEVEL_ATTRIBUTE_TYPE_UUID,
 } from "../../shared/constants/location";
 import { COUNTRY_CONCEPT_UUID, COUNTRY_CONCEPT_REPRESENTATION } from "../../shared/constants/concept";
 import { IConceptSetMember } from "../../shared/models/concept";
@@ -400,6 +402,52 @@ export const Location = ({
             isMulti
             type="text"
           />
+        </div>
+      );
+    } else if (locationAttributeTypeUuid === OWNERSHIP_ATTRIBUTE_TYPE_UUID) {
+      const ownershipOptions: Array<IOption> = [
+        { label: 'PNFP', value: 'PNFP'},
+        { label: 'PFP', value: 'PFP'},
+        { label: 'Government', value: 'Government'}
+      ]
+      return (
+        <div className="input-container" key={key}>
+          <SelectWithPlaceholder
+            placeholder={placeholder}
+            showPlaceholder={!!value}
+            value={value && ownershipOptions.find((option) => option.value === value)}
+            onChange={(option: IOption | null) => onChange(option?.value || "")}
+            options={ownershipOptions}
+            wrapperClassName={cx("flex-1", { invalid: showValidationErrors && isInvalid })}
+            classNamePrefix="default-select"
+            theme={selectDefaultTheme}
+            isClearable
+          />
+          {showValidationErrors && isInvalid && <ValidationError message="common.error.required" />}
+        </div>
+      );
+    } else if (locationAttributeTypeUuid === FACILITY_LEVEL_ATTRIBUTE_TYPE_UUID) {
+      const facilityLevels: Array<IOption> = [
+        { label: 'HC2', value: 'HC2'},
+        { label: 'HC3', value: 'HC3'},
+        { label: 'RRH', value: 'RRH'},
+        { label: 'GRH', value: 'GRH'},
+        { label: 'NRH', value: 'NRH'}
+      ]
+      return (
+        <div className="input-container" key={key}>
+          <SelectWithPlaceholder
+            placeholder={placeholder}
+            showPlaceholder={!!value}
+            value={value && facilityLevels.find((option) => option.value === value)}
+            onChange={(option: IOption | null) => onChange(option?.value || "")}
+            options={facilityLevels}
+            wrapperClassName={cx("flex-1", { invalid: showValidationErrors && isInvalid })}
+            classNamePrefix="default-select"
+            theme={selectDefaultTheme}
+            isClearable
+          />
+          {showValidationErrors && isInvalid && <ValidationError message="common.error.required" />}
         </div>
       );
     } else
