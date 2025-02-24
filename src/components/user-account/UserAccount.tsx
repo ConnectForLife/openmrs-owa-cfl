@@ -143,10 +143,10 @@ const UserAccount = (props: ILocationProps) => {
   const personUuid = currentUser?.person?.uuid;
   const userUuid = currentUser?.uuid;
   const emailAddressAtributeTypeUuid = settings?.find(
-    (setting) => setting.property === SETTING_EMAIL_ADDRESS_ATRRIBUTE_TYPE,
+    (setting) => setting?.property === SETTING_EMAIL_ADDRESS_ATRRIBUTE_TYPE,
   )?.value;
   const telephoneNumberAtributeTypeUuid = settings?.find(
-    (setting) => setting.property === SETTING_TELEPHONE_NUMBER_ATRRIBUTE_TYPE,
+    (setting) => setting?.property === SETTING_TELEPHONE_NUMBER_ATRRIBUTE_TYPE,
   )?.value;
   const roleUuidsToHide = setting?.value;
 
