@@ -28,6 +28,14 @@ export const formatDate = (intl, date) =>
 
 export const isoDateString = jsDate => (jsDate ? jsDate.toISOString().split('T')[0] : null);
 
+export const localIsoDateString = jsDate => {
+  const year = jsDate.getFullYear();
+  const month = String(jsDate.getMonth() + 1).padStart(2, '0');
+  const day = String(jsDate.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+};
+
 export const MILLIS_PER_MINUTE = 60 * 1000;
 
 export const WEEK_DAYS_KEYS = [
