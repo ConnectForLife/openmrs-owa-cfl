@@ -18,7 +18,7 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import { getSettingByQuery } from "../../redux/reducers/settings";
 import Select from "react-select/creatable";
 import "../Inputs.scss";
-import { DATE_FORMAT, MONTH_NAMES_KEYS, WEEK_DAYS_KEYS, isoDateString } from "../../shared/util/date-util";
+import { DATE_FORMAT, MONTH_NAMES_KEYS, WEEK_DAYS_KEYS, localIsoDateString } from "../../shared/util/date-util";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { RouteComponentProps, withRouter } from "react-router-dom";
@@ -207,9 +207,9 @@ class Condition extends React.Component<IConditionsProps, IConditionsState> {
 
   getConditionStatus = () => (this.state.active ? STATUS_ACTIVE : STATUS_INACTIVE);
 
-  getSetDate = () => isoDateString(this.state.onsetDate || new Date());
+  getSetDate = () => localIsoDateString(this.state.onsetDate || new Date());
 
-  getEndDate = () => (!this.state.active ? isoDateString(this.state.endDate) : "");
+  getEndDate = () => !this.state.active ? localIsoDateString(this.state.endDate) : '';
 
   getDayLabelsKey = () => {
     return WEEK_DAYS_KEYS.map((key) => this.props.intl.formatMessage({ id: key }));
