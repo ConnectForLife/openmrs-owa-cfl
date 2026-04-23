@@ -6,7 +6,7 @@
     "fields": [
       {
         "name": "givenName",
-        "required": true
+        "required": false
       },
       {
         "name": "middleName",
@@ -14,7 +14,7 @@
       },
       {
         "name": "familyName",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -25,7 +25,7 @@
     "fields": [
       {
         "name": "gender",
-        "required": true,
+        "required": false,
         "type": "buttons",
         "options": [
           {
@@ -47,7 +47,7 @@
     "fields": [
       {
         "name": "birthdate",
-        "required": true,
+        "required": false,
         "type": "date"
       },
       {
